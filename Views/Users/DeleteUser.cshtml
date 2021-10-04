@@ -1,0 +1,16 @@
+﻿@model UsersCRUD.Models.User;
+
+@{
+    ViewData["Title"] = "Delete User";
+}
+
+<h2>Excluir Usuário</h2>
+
+<h4>@Model.Name</h4>
+
+<form asp-action="DeleteUser">
+    <input type="hidden" asp-for="UserId" />
+    <input type="submit" value="Excluir" class="btn btn-danger" />
+</form>
+
+<a asp-action="Index" class="btn btn-link">Voltar</a>

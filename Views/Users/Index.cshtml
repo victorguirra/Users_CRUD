@@ -1,0 +1,42 @@
+﻿@model IEnumerable<UsersCRUD.Models.User>;
+
+@{ 
+    ViewData["Title"] = "All Users";
+}
+
+<h2>Seus usuários</h2>
+
+<a asp-action="CreateUser" class="btn btn-primary">Novo Usuário</a>
+
+<div class="container-fluid">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>CPF</th>
+                <th>Data de Nascimento</th>
+                <th>Celular</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var user in Model)
+            {
+            <tr>
+                <td>@user.Name</td>
+                <td>@user.Email</td>
+                <td>@user.Cpf</td>
+                <td>@user.BirthDate.ToString("g")</td>
+                <td>@user.Phone</td>
+                <td>
+                    <a asp-action="UserDetails" asp-route-id="@user.UserId" class="btn btn-warning">Detalhes</a>
+                    <a asp-action="UpdateUser" asp-route-id="@user.UserId" class="btn btn-info">Editar</a>
+                    <a asp-action="DeleteUser" asp-route-id="@user.UserId" class="btn btn-danger">Excluir</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

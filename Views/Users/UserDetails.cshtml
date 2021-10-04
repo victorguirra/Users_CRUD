@@ -1,0 +1,17 @@
+﻿@model UsersCRUD.Models.User
+
+@{ 
+    ViewData["Title"] = "Details";
+}
+
+<h2>Detalhes</h2>
+
+<div class="container-fluid">
+    <p>@Model.Name</p>
+    <p>@Model.Email</p>
+    <p>@Model.Cpf</p>
+    <p>@Model.BirthDate.ToString("g")</p>
+    <p>@Model.Phone</p>
+</div>
+
+<a asp-action="Index" class="btn btn-link">Voltar</a>
